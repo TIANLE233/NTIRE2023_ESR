@@ -22,6 +22,13 @@ def select_model(args, device):
         model_path = os.path.join('model_zoo', 'team00_rfdn.pth')
         model = RFDN()
         model.load_state_dict(torch.load(model_path), strict=True)
+    elif model_id == 6:
+        # FAN
+        from models.team06_FAN import FAN
+        name, data_range = f"{model_id:06}_FAN", 255.0
+        model_path = os.path.join('model_zoo', 'team06_fan.pth')
+        model = FAN()
+        model.load_state_dict(torch.load(model_path)['params'], strict=True)
     else:
         raise NotImplementedError(f"Model {model_id} is not implemented.")
 
