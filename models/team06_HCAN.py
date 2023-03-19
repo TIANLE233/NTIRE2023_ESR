@@ -194,10 +194,10 @@ class FocalTG(TransformerGroup):
             __init__(sa_list=sa_list, mlp_list=mlp_list, dim=dim)
 
 
-class FAN(nn.Module):
+class HCAN(nn.Module):
     def __init__(self, upscale: int = 4, num_in_ch: int = 3, num_out_ch: int = 3, task: str = 'lsr',
                  n_t: int = 12, n_g: int = 1, dim: int = 32, act_layer: nn.Module = nn.GELU) -> None:
-        super(FAN, self).__init__()
+        super(HCAN, self).__init__()
 
         self.sub_mean = MeanShift(255, sign=-1, data_type='DF2K')
         self.add_mean = MeanShift(255, sign=1, data_type='DF2K')
